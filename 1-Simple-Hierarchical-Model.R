@@ -1,5 +1,5 @@
 #Simple hierarchical model.
-#This R script contains code to perform ABC for model with 3 populations, no mixture event.
+#This R script contains code to perform ABC for model with 3 populations, no admixture event.
 
 library("abc")
 library("MASS")
@@ -93,5 +93,3 @@ names(dataSSs)<-c("var_X1","cov_X1_X2","var_X2","cov_X1_X3","cov_X2_X3","var_X3"
 abcOutput = abc(target=dataSSs, param=paramSims, sumstat=SSsims,tol=0.01,method="rejection")
 #Local linear regression adjustment.
 abcOutputLLin = abc(target=dataSSs, param=paramSims, sumstat=SSsims,tol=0.01,method="loclinear")
-#Neural network regression adjustment.
-abcOutputNNet = abc(target=dataSSs, param=paramSims, sumstat=SSsims,tol=0.01,method="neuralnet")
